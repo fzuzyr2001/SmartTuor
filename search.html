@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <title>旅游</title>
+  <!-- 引入资源-->
+  <!--引入CSS相关资源-->
+  <link rel="stylesheet"
+        href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+  <link rel="stylesheet" href="./CSS/index.css">
+  <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+  <!--引入JS相关资源-->
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode:'eea590ae83255254b5edb52523ee23dd',
+    }
+  </script>
+  <script
+          type="text/javascript"
+          src="https://webapi.amap.com/maps?v=1.4.15&key=fe2a03a1c5e8b3d38217ec474ec709e1&plugin=AMap.PlaceSearch,AMap.AdvancedInfoWindow"
+  ></script>
+  <script src="https://webapi.amap.com/maps?v=2.0&key=2d6aecff378e9a0748e33c258b62c02f"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+  <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=fe2a03a1c5e8b3d38217ec474ec709e1"></script>
+
+  <script src="./JS/store.js"></script>
+  <script src="./JS/maphop.js"></script>
+  <script src="./JS/tian qi.js"></script>
+  <script src="./JS/echarts.js"></script>
+  <script src="./JS/jing%20dian.js"></script>
+  <script src="./JS/search.js"></script>
+  <script src="./JS/PointData.js"></script>
+  <script src="./JS/point.js"></script>
+  <script src="./JS/heatmap.js"></script>
+  <!--  <script src="./JS/heatmap.js"></script>-->
+  <!--  <script src="./JS/heatmapData.js"></script>-->
+</head>
+<body>
+<!--创建地图容器-->
+<div id="container" class="map"></div>
+<!--<div class="info">点击地图标注热门景点</div>-->
+<!--导航栏-->
+<div id="head">
+  <ul>
+    <li><a class="active" href="index.html">福州</a></li>
+    <li><a class="1" href="#" onclick="searchJingDian()">热门景点</a></li>
+    <li><a class="3" href="#" onclick="mapHop()">路径规划</a></li>
+    <li><a class="4" href="#" onclick="weatherShow()">天气预测</a></li>
+    <li><a class="5" href="#" onclick="addpoint()">景点分布</a></li>
+    <li><a class="6" href="#" onclick="echartsD(D)">柱状图</a></li>
+    <li><a class="7" href="HeatMap.html" >热点图</a></li>
+    <li><a class="sha" ><input id="tipinput" placeholder="请输入关键字" onclick="search1()"></a></li>
+  </ul>
+</div>
+<div id="panel"></div>
+<div class="info">
+  <h4 id="weather1" class="weather1">预报天气</h4><hr>
+  <p id='forecast'></p>
+</div>
+<div id="echarts"></div>
+<!--<div id="tip">鼠标悬停热点试试</div>-->
+<script>
+  document.getElementById("weather1").style.display="none";
+  //创建地图对象
+  let map = new AMap.Map('container',{
+    center: [119.28, 26.08],  //设置地图中心点经纬度
+    zoom:13, //地图的缩放比例
+    resizeEnable: true
+    // viewMode:'3D',
+    // pitch:45, //倾斜角度
+  })
+
+  //使用控件
+  AMap.plugin(
+          ['AMap.ToolBar', 'AMap.Scale', 'AMap.ControlBar', 'AMap.MapType'],
+          function(){
+            map.addControl(new AMap.ToolBar())
+            map.addControl(new AMap.Scale())
+            map.addControl(new AMap.ControlBar({
+              position: { //调整控件的位置
+                top: '200px',
+                right:'10px'
+              }
+            }))
+            map.addControl(new AMap.MapType())
+          })
+
+  //监听地图的点击事件
+  map.on('click', function (e){
+    let marker = new AMap.Marker({
+      position: e.lnglat,
+    })
+    map.add(marker)
+  })
+
+
+</script>
+
+</body>
+</html>

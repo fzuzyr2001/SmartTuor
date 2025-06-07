@@ -1,0 +1,147 @@
+html,
+body,
+#container {
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+}
+
+#head {
+    /*text-align: center;*/
+    padding: 0;
+    width: 70%;
+    z-index: 999;
+    position: absolute;
+    top: 4%;
+    left: 11%;
+    border-radius: 8px;
+    background-color: #000;
+    opacity:0.7;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: black;
+    border-radius: 8px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+    color: black;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+/*地图热点*/
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+.map{
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+.info-title{
+    font-weight: bolder;
+    color: #fff;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 0 0 0 6px;
+    background: #25A5F7
+}
+.info-content{
+    padding: 4px;
+    color: #666666;
+    line-height: 23px;
+    font: 12px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+}
+.info-content img{
+    float: left;
+    margin: 3px;
+}
+.amap-info-combo .keyword-input {
+    height: auto;
+}
+
+/*景点搜索*/
+#panel {
+    position: absolute;
+    background-color: white;
+    max-height: 100%;
+    overflow-y: auto;
+    top: 40px;
+    right: 10px;
+    width: 280px;
+}
+
+/*天气*/
+.weather{
+    width:5rem;
+    display:inline-block;
+    padding-left:0.5rem;
+}
+.sharp{
+    height: 1rem;
+    width: 1rem;
+    background-color: white;
+    transform: rotateZ(45deg);
+    box-shadow: 2px 2px 3px rgba(114, 124, 245, .5);
+    position: inherit;
+    margin-left: 10.5rem;
+    margin-top: -6px;
+}
+
+/*#weather1 {*/
+/*    height: 24px;*/
+/*    !*position:fixed;*!*/
+/*    !*top:50px;*!*/
+/*    !*right:5px;*!*/
+/*}*/
+
+
+/*柱状图*/
+#echarts {
+    width:250pt;
+    height: 400pt;
+    border: 1px solid black;
+    overflow: scroll;
+    margin-top: 100px;
+}
+
+/*搜索框*/
+#tipinput {
+    margin-top: -9px;
+    background-color: white;
+    margin-left: 100px;
+    width: 240px;
+    height: 35px;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.sha {
+    height: 53px;
+}
